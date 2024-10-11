@@ -13,6 +13,15 @@ services:
     command: "agent -server -bootstrap-expect=1 -ui -client=0.0.0.0 -data-dir=/consul/data"
     volumes:
       - consul_data:/consul/data
+
+  apigateway:
+    image: 19122002/test_app:apigateway
+    container_name: apigateway
+    networks:
+      - app-network
+    ports:
+      - "9000:9000"
+
   userapi:
     image: 19122002/test_app:userapi
     container_name: userapi
@@ -20,5 +29,6 @@ services:
       - app-network
     ports:
       - "9005:9005"
+  
 volumes:
   consul_data:
