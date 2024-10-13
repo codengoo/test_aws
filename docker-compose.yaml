@@ -29,6 +29,17 @@ services:
       - app-network
     ports:
       - "9005:9005"
+
+  cdnapi:
+    image: 19122002/test_app:cdn
+    container_name: cdnapi
+    networks:
+      - app-network
+    ports:
+      - "3000:3000"
+    volumes:
+      - cdn_data:/app/uploads
   
 volumes:
   consul_data:
+  cdn_data:
