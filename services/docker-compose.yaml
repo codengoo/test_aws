@@ -12,7 +12,7 @@ services:
       - "9000:9000"
 
   user_service:
-    image: 19122002/test_app:user_service
+    image: 19122002/test_app:userapi
     container_name: user_service
     networks:
       - app-network
