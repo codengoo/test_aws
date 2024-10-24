@@ -1,0 +1,20 @@
+networks:
+  app-network:
+    driver: bridge
+
+services:
+  gateway_service:
+    image: 19122002/test_app:apigateway
+    container_name: apigateway
+    networks:
+      - app-network
+    ports:
+      - "9000:9000"
+
+  user_service:
+    image: 19122002/test_app:user_service
+    container_name: user_service
+    networks:
+      - app-network
+    ports:
+      - "9005:9005"
