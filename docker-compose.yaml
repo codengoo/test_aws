@@ -42,7 +42,7 @@ services:
     networks:
       - app-network
     ports:
-      - "3000:3000"
+      - "3000:80"
     volumes:
       - cdn_data:/app/uploads
   
