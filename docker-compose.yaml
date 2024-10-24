@@ -5,7 +5,7 @@ networks:
 services:
   consul:
     image: consul:1.15.4
-    container_name: consul
+    container_name: emon_consul
     networks:
       - app-network
     ports:
@@ -14,25 +14,31 @@ services:
     volumes:
       - consul_data:/consul/data
 
-  apigateway:
-    image: 19122002/test_app:apigateway
-    container_name: apigateway
+  postgres: 
+    image: postgres:17-alpine
+    container_name: emon_postgres
     networks:
       - app-network
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=mydb
     ports:
-      - "9000:9000"
+      - "5432:5432"
+    volumes:
+      - postgres_data:/postgres_data/data
 
-  userapi:
-    image: 19122002/test_app:userapi
-    container_name: userapi
+  redis: 
+    image: redis:7.4.1-alpine
+    container_name: emon_redis
     networks:
       - app-network
     ports:
-      - "9005:9005"
+      - "6379:6379"
 
   cdnapi:
     image: 19122002/test_app:cdn
-    container_name: cdnapi
+    container_name: emon_cdnapi
     networks:
       - app-network
     ports:
@@ -42,4 +48,5 @@ services:
   
 volumes:
   consul_data:
+  postgres_data:
   cdn_data:
