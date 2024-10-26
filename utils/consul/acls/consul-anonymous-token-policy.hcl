@@ -1,6 +1,6 @@
-service_prefix "" { policy = "deny" }
-service "" { policy = "deny" } 
-key_prefix "" { policy = "deny" } 
-node_prefix "" { policy = "deny" }
-agent_prefix "" { policy = "deny" }
-query_prefix "" { policy = "deny" }
+service_prefix "" { policy = "read" }
+service "" { policy = "read" }
+key_prefix "" { policy = "read" }
+node_prefix "" { policy = "read" }
+agent_prefix "" { policy = "read" }
+query_prefix "" { policy = "read" }
