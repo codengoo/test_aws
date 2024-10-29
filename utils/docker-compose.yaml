@@ -67,7 +67,7 @@ services:
   #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   cdnapi:
-    image: 19122002/test_app:cdn
+    image: 19122002/test_app:cdnapi
     container_name: emon_cdnapi
     networks:
       - app-network
