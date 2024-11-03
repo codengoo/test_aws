@@ -26,7 +26,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=mydb
+      - POSTGRES_DB=user
     ports:
       - "5432:5432"
     volumes:
@@ -66,17 +66,17 @@ services:
   #     KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
   #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-  cdnapi:
-    image: 19122002/test_app:cdnapi
-    container_name: emon_cdnapi
-    networks:
-      - app-network
-    ports:
-      - "3000:3000"
-    volumes:
-      - cdn_data:/app/uploads
+  # cdnapi:
+  #   image: 19122002/test_app:cdnapi
+  #   container_name: emon_cdnapi
+  #   networks:
+  #     - app-network
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - cdn_data:/app/uploads
   
 volumes:
   consul_data:
   postgres_data:
-  cdn_data:
+  # cdn_data:
