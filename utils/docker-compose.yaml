@@ -32,13 +32,13 @@ services:
     volumes:
       - postgres_data:/postgres_data/data
 
-  # redis: 
-  #   image: redis:7.4.1-alpine
-  #   container_name: emon_redis
-  #   networks:
-  #     - app-network
-  #   ports:
-  #     - "6379:6379"
+  redis: 
+    image: redis:7.4.1-alpine
+    container_name: emon_redis
+    networks:
+      - app-network
+    ports:
+      - "6379:6379"
 
   # zookeeper:
   #   image: confluentinc/cp-zookeeper:7.3.2
